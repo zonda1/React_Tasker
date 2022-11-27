@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import ProjectPage from './pages/ProjectPage';
+import TaskPage from './pages/TaskPage';
+import { AppRoute } from "./const";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path={AppRoute.Main} />
+                <Route index element={<ProjectPage />} />
+                <Route path={AppRoute.Task} element={<TaskPage />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
